@@ -3,6 +3,9 @@ event-emitter.js
 
 Simple JS Event Emitter
 
+## Install:
+
+    'bower install --save tom32i-event-emitter.js'
 
 ## Usage:
 
