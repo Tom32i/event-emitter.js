@@ -14,8 +14,6 @@ function EventEmitter ()
  */
 EventEmitter.prototype.emit = function(type, data)
 {
-    var test;
-
     this.element.dispatchEvent(new CustomEvent(type, {detail: data}));
 };
 
