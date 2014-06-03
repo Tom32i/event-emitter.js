@@ -1,3 +1,9 @@
+/*!
+ * event-emitter.js 0.0.1
+ * https://github.com/Tom32i/event-emitter.js
+ * Copyright 2014 Thomas JARRAND
+ */
+
 /**
  * Event Emitter
  */

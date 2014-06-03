@@ -1,15 +1,17 @@
 {
   "name": "event-emitter.js",
   "version": "0.0.1",
-  "main": "dist/EventEmitter.js",
-  "license": "MIT",
-  "dependencies": {},
-  "homepage": "https://github.com/Tom32i/event-emitter.js",
-  "authors": [
-    "Thomas JARRAND <thomas.jarrand@gmail.com>"
-  ],
   "description": "Simple Event Emitter",
   "keywords": ["event", "emitter"],
+  "homepage": "https://github.com/Tom32i/event-emitter.js",
+  "license": "MIT",
+  "authors": [{
+    "name": "Thomas JARRAND",
+    "email": "thomas.jarrand@gmail.com",
+    "homepage": "http://thomas-jarrand.com"
+  }],
+  "main": "dist/event-emitter.min.js",
+  "dependencies": {},
   "ignore": [
     "**/.*",
     "node_modules"
