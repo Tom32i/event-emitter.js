@@ -3,7 +3,7 @@
  */
 function EventEmitter ()
 {
-    this.element = document.createElement('div');
+    this._eventElement = document.createElement('div');
 }
 
 /**
@@ -14,9 +14,7 @@ function EventEmitter ()
  */
 EventEmitter.prototype.emit = function(type, data)
 {
-    var test;
-
-    this.element.dispatchEvent(new CustomEvent(type, {detail: data}));
+    this._eventElement.dispatchEvent(new CustomEvent(type, {detail: data}));
 };
 
 /**
@@ -27,7 +25,7 @@ EventEmitter.prototype.emit = function(type, data)
  */
 EventEmitter.prototype.addEventListener = function(name, callback)
 {
-    this.element.addEventListener(name, callback, false);
+    this._eventElement.addEventListener(name, callback, false);
 };
 
 /**
@@ -38,7 +36,7 @@ EventEmitter.prototype.addEventListener = function(name, callback)
  */
 EventEmitter.prototype.removeEventListener = function(name, callback)
 {
-    this.element.removeEventListener(name, callback, false);
+    this._eventElement.removeEventListener(name, callback, false);
 };
 
 /**
