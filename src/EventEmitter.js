@@ -3,7 +3,7 @@
  */
 function EventEmitter ()
 {
-    this._eventElement = document.createElement('div');
+    this._events = {};
 }
 
 /**
@@ -12,9 +12,19 @@ function EventEmitter ()
  * @param {String} type
  * @param {Object} data
  */
-EventEmitter.prototype.emit = function(type, data)
+EventEmitter.prototype.emit = function(name, data)
 {
-    this._eventElement.dispatchEvent(new CustomEvent(type, {detail: data}));
+    if (typeof(this._events[name]) === 'undefined') {
+        return;
+    }
+
+    var callbacks = this._events[name],
+        length = callbacks.length,
+        event = {type: name, detail: data};
+
+    for (var i = 0; i < length; i++) {
+        callbacks[i](event);
+    }
 };
 
 /**
@@ -25,7 +35,11 @@ EventEmitter.prototype.emit = function(type, data)
  */
 EventEmitter.prototype.addEventListener = function(name, callback)
 {
-    this._eventElement.addEventListener(name, callback, false);
+    if (typeof(this._events[name]) === 'undefined') {
+        this._events[name] = [];
+    }
+
+    this._events[name].push(callback);
 };
 
 /**
@@ -36,7 +50,20 @@ EventEmitter.prototype.addEventListener = function(name, callback)
  */
 EventEmitter.prototype.removeEventListener = function(name, callback)
 {
-    this._eventElement.removeEventListener(name, callback, false);
+    if (typeof(this._events[name]) === 'undefined') {
+        return;
+    }
+
+    var callbacks = this._events[name],
+        index = callbacks.indexOf(callback);
+
+    if (index >= 0) {
+        callbacks.splice(index, 1);
+    }
+
+    if (!callbacks.length) {
+        delete this._events[name];
+    }
 };
 
 /**
