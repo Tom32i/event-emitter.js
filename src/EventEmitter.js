@@ -39,7 +39,9 @@ EventEmitter.prototype.addEventListener = function(name, callback)
         this._events[name] = [];
     }
 
-    this._events[name].push(callback);
+    if (this._events[name].indexOf(callback) < 0) {
+        this._events[name].push(callback);
+    }
 };
 
 /**

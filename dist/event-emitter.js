@@ -1,5 +1,5 @@
 /*!
- * event-emitter.js 0.0.2
+ * event-emitter.js 0.1.0
  * https://github.com/Tom32i/event-emitter.js
  * Copyright 2014 Thomas JARRAND
  */
@@ -45,7 +45,9 @@ EventEmitter.prototype.addEventListener = function(name, callback)
         this._events[name] = [];
     }
 
-    this._events[name].push(callback);
+    if (this._events[name].indexOf(callback) < 0) {
+        this._events[name].push(callback);
+    }
 };
 
 /**

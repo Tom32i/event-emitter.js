@@ -1,6 +1,6 @@
 {
   "name": "event-emitter.js",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Simple Event Emitter",
   "keywords": ["event", "emitter"],
   "homepage": "https://github.com/Tom32i/event-emitter.js",
