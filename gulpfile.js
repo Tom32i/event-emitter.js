@@ -3,7 +3,7 @@ var gulp = require('gulp'),
   uglify = require('gulp-uglify'),
   header = require('gulp-header'),
   jshint = require('gulp-jshint'),
-  meta = require('./package.json');
+  meta   = require('./package.json');
 
 var srcDir = './src/',
     distDir = './dist/',

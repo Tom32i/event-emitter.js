@@ -1,7 +1,7 @@
 {
-  "name": "event-emitter.js",
-  "version": "0.1.0",
-  "description": "Simple Event Emitter",
+  "name": "tom32i-event-emitter.js",
+  "version": "1.0.0",
+  "description": "Minimalist Event Emitter",
   "keywords": ["event", "emitter"],
   "homepage": "https://github.com/Tom32i/event-emitter.js",
   "license": "MIT",
