@@ -1,6 +1,6 @@
 {
   "name": "tom32i-event-emitter.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Minimalist Event Emitter",
   "keywords": ["event", "emitter"],
   "homepage": "https://github.com/Tom32i/event-emitter.js",

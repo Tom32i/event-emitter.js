@@ -23,14 +23,14 @@ gulp.task('jshint', function() {
 
 gulp.task('full', function() {
     gulp.src(srcDir + '**/*.js')
-        .pipe(concat(meta.name))
+        .pipe(concat('event-emitter.js'))
         .pipe(header(banner, meta))
         .pipe(gulp.dest(distDir));
 });
 
 gulp.task('min', function(){
     gulp.src(srcDir + '**/*.js')
-        .pipe(concat(meta.name.replace('.js', '.min.js')))
+        .pipe(concat('event-emitter.min.js'))
         .pipe(uglify())
         .pipe(header(banner, meta))
         .pipe(gulp.dest(distDir));

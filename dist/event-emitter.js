@@ -1,5 +1,5 @@
 /*!
- * event-emitter.js 1.0.0
+ * tom32i-event-emitter.js 1.0.1
  * https://github.com/Tom32i/event-emitter.js
  * Copyright 2014 Thomas JARRAND
  */
@@ -20,7 +20,7 @@ function EventEmitter ()
  */
 EventEmitter.prototype.emit = function(name, data)
 {
-    if (typeof(this._events[name]) === 'undefined') {
+    if (typeof this._events[name] === 'undefined') {
         return;
     }
 
@@ -29,8 +29,19 @@ EventEmitter.prototype.emit = function(name, data)
         event = {type: name, detail: data};
 
     for (var i = 0; i < length; i++) {
-        callbacks[i](event);
+        this.handle(callbacks[i], event);
     }
+};
+
+/**
+ * Call the given callback
+ *
+ * @param {Function} callback
+ * @param {Object} event
+ */
+EventEmitter.prototype.handle = function(callback, event)
+{
+    callback(event);
 };
 
 /**
