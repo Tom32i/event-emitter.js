@@ -1,5 +1,5 @@
-event-emitter.js
-================
+tom32i-event-emitter.js
+=======================
 
 Minimalist JS Event Emitter system
 
@@ -72,3 +72,17 @@ player.on('die', onDie);  // "on" is an alias of "addEventListener"
 // Removing a listener
 player.off('die', onDie); // "off" is an alias of "removeEventListener"
 ```
+
+# Contribute
+
+Clone the repository:
+
+    git clone git@github.com:Tom32i/event-emiter.js.git
+
+Install dev dependencies:
+
+    npm install
+
+Build dist:
+
+    npm run build
