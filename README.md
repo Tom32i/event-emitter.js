@@ -18,16 +18,16 @@ HTML:
 ES6:
 
 ```javascript
-import EventEmitter from 'tom32-event-emitter.js';
+import EventEmitter from 'tom32i-event-emitter.js';
 ```
 
 Node:
 
 ```javascript
-const EventEmitter = require('tom32-event-emitter.js');
+const EventEmitter = require('tom32i-event-emitter.js');
 ```
 
-### Use
+### Usage
 
 Make your prototype extend the EventEmitter.
 Emit event with `emit`.
