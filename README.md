@@ -1,5 +1,5 @@
-event-emitter.js
-================
+tom32i-event-emitter.js
+=======================
 
 Minimalist JS Event Emitter system
 
@@ -7,60 +7,88 @@ Minimalist JS Event Emitter system
 
     npm install --save tom32i-event-emitter.js
 
-or
+### Import
 
-    bower install --save tom32i-event-emitter.js
+HTML:
 
-## Usage:
+```html
+<script src="tom32i-event-emitter.js"></script>
+```
 
-Make your prototype extend the EventEmitter:
+ES6:
+
+```javascript
+import EventEmitter from 'tom32i-event-emitter.js';
+```
+
+Node:
+
+```javascript
+const EventEmitter = require('tom32i-event-emitter.js');
+```
+
+### Usage
+
+Make your prototype extend the EventEmitter.
+Emit event with `emit`.
 
 ``` javascript
 /**
  * Player
  */
-function Player()
-{
-    // Call parent constructor:
-    EventEmitter.call(this);
+class Player extends EventEmitter {
+    constructor() {
+        super();
 
-    this.alive = true;
-}
+        this.alive = true;
+    }
 
-// Extends EventEmitter:
-Player.prototype = Object.create(EventEmitter.prototype);
-Player.prototype.constructor = Player;
-```
+    /**
+     * Emit and event on death
+     */
+    die() {
+        this.alive = false;
 
-Emitting events:
-
-``` javascript
-/**
- * Player die
- */
-Player.prototype.die = function ()
-{
-    this.alive = false;
-
-    // Emitting an event:
-    this.emit('die', {player: this, foo: 'bar'});
+        // Emitting an event:
+        this.emit('die', this, 'You died');
+    }
 }
 ```
 
 Listening for events:
 
-``` javascript
+```javascript
 var player = new Player();
 
-function onDie (event) {
-    var foo    = event.detail.foo,
-        player = event.detail.player;
-    // ...
+/**
+ * On die
+ *
+ * @param {Player} player
+ * @param {String} message
+ */
+function onDie(player, message) {
+    console.log(player, message);
 }
 
 // Adding a listener
 player.on('die', onDie);  // "on" is an alias of "addEventListener"
 
+player.die();
+
 // Removing a listener
 player.off('die', onDie); // "off" is an alias of "removeEventListener"
 ```
+
+# Contribute
+
+Clone the repository:
+
+    git clone git@github.com:Tom32i/event-emiter.js.git
+
+Install dev dependencies:
+
+    npm install
+
+Build dist:
+
+    npm run build
