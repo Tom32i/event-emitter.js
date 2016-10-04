@@ -7,20 +7,25 @@ Minimalist JS Event Emitter system
 
     npm install --save tom32i-event-emitter.js
 
-
 ### Import
 
 HTML:
 
-    <script src="tom32i-event-emitter.js"></script>
+```html
+<script src="tom32i-event-emitter.js"></script>
+```
 
 ES6:
 
-    import EventEmitter from 'tom32-event-emitter.js';
+```javascript
+import EventEmitter from 'tom32-event-emitter.js';
+```
 
 Node:
 
-    const EventEmitter = require('tom32-event-emitter.js');
+```javascript
+const EventEmitter = require('tom32-event-emitter.js');
+```
 
 ### Use
 
@@ -52,10 +57,10 @@ class Player extends EventEmitter {
 
 Listening for events:
 
-``` javascript
+```javascript
 var player = new Player();
 
-function onDie (event) {
+function onDie(event) {
     const type = event;
     const { foo, player } = event.detail;
     // ...
