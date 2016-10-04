@@ -7,54 +7,62 @@ Minimalist JS Event Emitter system
 
     npm install --save tom32i-event-emitter.js
 
-or
+### Import
 
-    bower install --save tom32i-event-emitter.js
+HTML:
 
-## Usage:
+```html
+<script src="tom32i-event-emitter.js"></script>
+```
 
-Make your prototype extend the EventEmitter:
+ES6:
+
+```javascript
+import EventEmitter from 'tom32-event-emitter.js';
+```
+
+Node:
+
+```javascript
+const EventEmitter = require('tom32-event-emitter.js');
+```
+
+### Use
+
+Make your prototype extend the EventEmitter.
+Emit event with `emit`.
 
 ``` javascript
 /**
  * Player
  */
-function Player()
-{
-    // Call parent constructor:
-    EventEmitter.call(this);
+class Player extends EventEmitter {
+    constructor() {
+        super();
 
-    this.alive = true;
-}
+        this.alive = true;
+    }
 
-// Extends EventEmitter:
-Player.prototype = Object.create(EventEmitter.prototype);
-Player.prototype.constructor = Player;
-```
+    /**
+     * Emit and event on death
+     */
+    die() {
+        this.alive = false;
 
-Emitting events:
-
-``` javascript
-/**
- * Player die
- */
-Player.prototype.die = function ()
-{
-    this.alive = false;
-
-    // Emitting an event:
-    this.emit('die', {player: this, foo: 'bar'});
+        // Emitting an event:
+        this.emit('die', {player: this, foo: 'bar'});
+    }
 }
 ```
 
 Listening for events:
 
-``` javascript
+```javascript
 var player = new Player();
 
-function onDie (event) {
-    var foo    = event.detail.foo,
-        player = event.detail.player;
+function onDie(event) {
+    const type = event;
+    const { foo, player } = event.detail;
     // ...
 }
 
