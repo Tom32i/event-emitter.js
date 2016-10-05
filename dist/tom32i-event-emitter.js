@@ -1,5 +1,5 @@
 /*!
- * tom32i-event-emitter.js - 2.0.0
+ * tom32i-event-emitter.js - 2.0.1
  * https://github.com/Tom32i/event-emitter.js
  * Copyright 2016 Thomas JARRAND
  */
