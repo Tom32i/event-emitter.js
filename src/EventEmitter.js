@@ -1,7 +1,7 @@
 /**
  * Event Emitter
  */
-class EventEmitter {
+export default class EventEmitter {
     /**
      * Constructor
      */
@@ -81,5 +81,3 @@ class EventEmitter {
         }
     }
 }
-
-export default EventEmitter;

@@ -18,13 +18,13 @@ HTML:
 ES6:
 
 ```javascript
-import EventEmitter from 'tom32i-event-emitter.js';
+import EventEmitter from 'tom32i-event-emitter';
 ```
 
 Node:
 
 ```javascript
-const EventEmitter = require('tom32i-event-emitter.js');
+const EventEmitter = require('tom32i-event-emitter');
 ```
 
 ### Usage
@@ -50,7 +50,7 @@ class Player extends EventEmitter {
         this.alive = false;
 
         // Emitting an event:
-        this.emit('die', {player: this, foo: 'bar'});
+        this.emit('die', { player: this, foo: 'bar' });
     }
 }
 ```
@@ -61,8 +61,8 @@ Listening for events:
 var player = new Player();
 
 function onDie(event) {
-    const type = event;
-    const { foo, player } = event.detail;
+    const { type, detail } = event;
+    const { foo, player } = detail;
     // ...
 }
 
@@ -85,4 +85,4 @@ Install dev dependencies:
 
 Build dist:
 
-    npm run build
+    npm build

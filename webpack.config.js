@@ -1,33 +1,25 @@
-const webpack = require('webpack');
 const meta = require('./package.json');
 
 module.exports = {
-  entry: './module.js',
+  entry: './src/EventEmitter.js',
+  output: {
+    filename: meta.name,
+    path: __dirname,
+    library: 'EventEmitter',
+    libraryExport: 'default',
+    libraryTarget: 'umd',
+    globalObject: 'this',
+  },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
-      },
+        use: {
+          loader: 'babel-loader',
+          options: { presets: ['@babel/preset-env'] }
+        }
+      }
     ]
   },
-  output: {
-    path: __dirname + '/dist',
-    filename: meta.name,
-    library: 'EventEmitter',
-    libraryTarget: 'umd',
-  },
-  devServer: {
-    contentBase: './dist',
-  },
-  devtool: 'source-map',
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.BannerPlugin([
-      `${meta.name} - ${meta.version}`,
-      `${meta.homepage}`,
-      `Copyright 2016 ${meta.author.name}`,
-    ].join('\n'))
-  ]
 };

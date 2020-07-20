@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EventEmitter Demo</title>
+</head>
+<body>
+    <script src="/tom32i-event-emitter.js"></script>
+    <script type="text/javascript">
+        window.addEventListener('load', () => {
+            class Foo extends EventEmitter {
+                bar(detail) {
+                    this.emit('bar', detail);
+                }
+            }
+
+            const foo = new Foo();
+
+            function onBar(event) {
+                console.log('onBar', event);
+            }
+
+
+            foo.addEventListener('bar', onBar);
+
+            foo.bar({ foor: 'bar' });
+        });
+    </script>
+</body>
+</html>
