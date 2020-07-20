@@ -1,5 +1,5 @@
 const assert = require('assert');
-const EventEmitter = require('../tom32i-event-emitter');
+const EventEmitter = require('../tom32i-event-emitter.js');
 
 describe('EventEmitter', () => {
     class Foo extends EventEmitter {

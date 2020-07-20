@@ -18,13 +18,13 @@ HTML:
 ES6:
 
 ```javascript
-import EventEmitter from 'tom32i-event-emitter';
+import EventEmitter from 'tom32i-event-emitter.js';
 ```
 
 Node:
 
 ```javascript
-const EventEmitter = require('tom32i-event-emitter');
+const EventEmitter = require('tom32i-event-emitter.js');
 ```
 
 ### Usage
