@@ -1,6 +1,6 @@
 {
   "name": "tom32i-event-emitter.js",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Minimalist Event Emitter",
   "author": "Thomas Jarrand <thomas.jarrand@gmail.com> (https://thomas.jarrand.fr)",
   "license": "MIT",
