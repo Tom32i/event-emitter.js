@@ -12,7 +12,7 @@
     "subscriber"
   ],
   "scripts": {
-    "watch": "webpack --watch --mode=development",
+    "start": "webpack serve --mode=development",
     "build": "webpack --mode=production",
     "test": "mocha",
     "lint": "eslint src/* --ext .js,.json --fix"
@@ -23,12 +23,13 @@
   ],
   "main": "tom32i-event-emitter.js",
   "devDependencies": {
-    "@babel/core": "^7.14.0",
-    "@babel/preset-env": "^7.14.0",
-    "babel-loader": "^8.2.2",
-    "eslint": "^7.26.0",
-    "mocha": "^8.4.0",
-    "webpack": "^5.36.0",
-    "webpack-cli": "^4.6.0"
+    "@babel/core": "^7.14",
+    "@babel/preset-env": "^7.14",
+    "babel-loader": "^8.2",
+    "eslint": "^8.32",
+    "mocha": "^10.0",
+    "webpack": "^5.36",
+    "webpack-cli": "^4.6",
+    "webpack-dev-server": "^4.11"
   }
 }

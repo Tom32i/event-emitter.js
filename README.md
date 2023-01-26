@@ -15,13 +15,13 @@ HTML:
 <script src="tom32i-event-emitter.js"></script>
 ```
 
-ES6:
+ES modules:
 
 ```javascript
 import EventEmitter from 'tom32i-event-emitter.js';
 ```
 
-Node:
+CommonJs modules:
 
 ```javascript
 const EventEmitter = require('tom32i-event-emitter.js');
@@ -84,6 +84,18 @@ Install dev dependencies:
 
     npm install
 
-Build dist:
+### Launch the dev server
 
-    npm build
+    make start
+
+Go to http://localhost:8080
+
+### Code quality
+
+Linting:
+
+    make lint
+
+Run tests:
+
+    make test
