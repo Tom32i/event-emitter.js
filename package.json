@@ -1,6 +1,6 @@
 {
   "name": "tom32i-event-emitter.js",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Minimalist Event Emitter",
   "author": "Thomas Jarrand <thomas.jarrand@gmail.com> (https://thomas.jarrand.fr)",
   "license": "MIT",
@@ -13,24 +13,28 @@
   ],
   "type": "module",
   "scripts": {
-    "start": "webpack serve --mode=development",
-    "build": "webpack --mode=production",
+    "start": "vite",
+    "watch": "vite build --watch",
+    "build": "vite build",
+    "preview": "vite preview",
     "test": "mocha",
     "lint": "eslint src/* --ext .js,.json --fix"
   },
   "files": [
-    "src/*",
-    "tom32i-event-emitter.js"
+    "src",
+    "dist"
   ],
-  "main": "tom32i-event-emitter.js",
+  "main": "./dist/tom32i-event-emitter.umd.cjs",
+  "module": "./dist/tom32i-event-emitter.js",
+  "exports": {
+    ".": {
+      "import": "./dist/tom32i-event-emitter.js",
+      "require": "./dist/tom32i-event-emitter.umd.cjs"
+    }
+  },
   "devDependencies": {
-    "@babel/core": "^7.28",
-    "@babel/preset-env": "^7.28",
-    "babel-loader": "^10.0",
     "eslint": "^9.0",
     "mocha": "^11.0",
-    "webpack": "^5.36",
-    "webpack-cli": "^6.0",
-    "webpack-dev-server": "^5.2.2"
+    "vite": "^7.1.3"
   }
 }

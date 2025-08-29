@@ -1,7 +1,9 @@
 import assert from 'assert';
-import EventEmitter from '../src/EventEmitter.js';
+import EventEmitter from '../dist/tom32i-event-emitter.js';
 
 describe('EventEmitter', () => {
+    console.log(EventEmitter);
+
     class Foo extends EventEmitter {
         bar(detail) {
             this.emit('bar', detail);

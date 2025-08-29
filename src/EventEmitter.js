@@ -1,7 +1,7 @@
 /**
  * Event
  */
-export class Event {
+class Event {
     constructor(type, detail) {
         this.type = type;
         this.detail = detail;

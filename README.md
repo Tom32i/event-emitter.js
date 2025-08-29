@@ -82,13 +82,13 @@ Clone the repository:
 
 Install dev dependencies:
 
-    npm install
+    make install
 
 ### Launch the dev server
 
     make start
 
-Go to http://localhost:8080
+Go to http://localhost:8032
 
 ### Code quality
 
