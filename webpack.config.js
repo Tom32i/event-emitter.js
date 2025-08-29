@@ -1,9 +1,12 @@
-const meta = require('./package.json');
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-module.exports = {
+export default {
   entry: './src/EventEmitter.js',
   output: {
-    filename: meta.name,
+    filename: 'tom32i-event-emitter.js',
     path: __dirname,
     library: 'EventEmitter',
     libraryExport: 'default',

@@ -1,12 +1,23 @@
 /**
+ * Event
+ */
+export class Event {
+    constructor(type, detail) {
+        this.type = type;
+        this.detail = detail;
+    }
+}
+
+/**
  * Event Emitter
  */
 export default class EventEmitter {
-    /**
-     * Constructor
-     */
+    #events = new Map();
+
     constructor() {
-        this._events = {};
+        // Binding
+        this.addEventListener = this.addEventListener.bind(this);
+        this.removeEventListener = this.removeEventListener.bind(this);
 
         // Aliases
         this.on = this.addEventListener;
@@ -16,30 +27,21 @@ export default class EventEmitter {
     /**
      * Emit a new event
      *
-     * @param {String} type
+     * @param {String} name
      * @param {Object} data
      */
     emit(name, data) {
-        if (!Object.prototype.hasOwnProperty.call(this._events, name)) {
+        if (!this.#events.has(name)) {
             return;
         }
 
-        const callbacks = this._events[name];
-        const event = { type: name, detail: data };
+        const callbacks = this.#events.get(name);
+        const event = new Event(name, data);
+        const { length } = callbacks;
 
-        for (let length = callbacks.length, i = 0; i < length; i++) {
-            this.handle(callbacks[i], event);
+        for (let i = 0; i < length; i++) {
+            callbacks[i](event);
         }
-    }
-
-    /**
-     * Call the given callback
-     *
-     * @param {Function} callback
-     * @param {Object} event
-     */
-    handle(callback, event) {
-        callback(event);
     }
 
     /**
@@ -49,12 +51,10 @@ export default class EventEmitter {
      * @param {Function} callback
      */
     addEventListener(name, callback) {
-        if (!Object.prototype.hasOwnProperty.call(this._events, name)) {
-            this._events[name] = [];
-        }
+        const callbacks = this.#getCallbacks(name);
 
-        if (this._events[name].indexOf(callback) < 0) {
-            this._events[name].push(callback);
+        if (callbacks.indexOf(callback) < 0) {
+            callbacks.push(callback);
         }
     }
 
@@ -65,19 +65,27 @@ export default class EventEmitter {
      * @param {Function} callback
      */
     removeEventListener(name, callback) {
-        if (!Object.prototype.hasOwnProperty.call(this._events, name)) {
+        if (!this.#events.has(name)) {
             return;
         }
 
-        const callbacks = this._events[name];
+        const callbacks = this.#events.get(name);
         const index = callbacks.indexOf(callback);
 
         if (index >= 0) {
             callbacks.splice(index, 1);
         }
+    }
 
-        if (callbacks.length === 0) {
-            delete this._events[name];
+    #getCallbacks(name) {
+        if (this.#events.has(name)) {
+            return this.#events.get(name);
         }
+
+        const callbacks = [];
+
+        this.#events.set(name, callbacks);
+
+        return callbacks;
     }
 }

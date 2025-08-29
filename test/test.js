@@ -1,5 +1,5 @@
-const assert = require('assert');
-const EventEmitter = require('../tom32i-event-emitter.js');
+import assert from 'assert';
+import EventEmitter from '../src/EventEmitter.js';
 
 describe('EventEmitter', () => {
     class Foo extends EventEmitter {
