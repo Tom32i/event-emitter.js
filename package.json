@@ -1,6 +1,6 @@
 {
   "name": "tom32i-event-emitter.js",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Minimalist Event Emitter",
   "author": "Thomas Jarrand <thomas.jarrand@gmail.com> (https://thomas.jarrand.fr)",
   "license": "MIT",
@@ -17,8 +17,9 @@
     "watch": "vite build --watch",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "mocha",
-    "lint": "eslint src/* --ext .js,.json --fix"
+    "lint": "eslint src/* --ext .js,.json --fix",
+    "test": "vitest --run",
+    "test-watch": "vitest -- watch"
   },
   "files": [
     "src",
@@ -34,7 +35,7 @@
   },
   "devDependencies": {
     "eslint": "^9.0",
-    "mocha": "^11.0",
+    "vitest": "^4.0.8",
     "vite": "^7.1.3"
   }
 }

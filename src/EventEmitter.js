@@ -77,6 +77,13 @@ export default class EventEmitter {
         }
     }
 
+    /**
+     * Remove all attached event listeners
+     */
+    removeAllEventListeners() {
+        this.#events.clear();
+    }
+
     #getCallbacks(name) {
         if (this.#events.has(name)) {
             return this.#events.get(name);
