@@ -12,7 +12,8 @@ export default defineConfig({
       fileName: 'tom32i-event-emitter',
     },
   },
-  server: {
-    port: 8032,
+  preview: {
+    host: true,
+    port: 8080,
   },
 })

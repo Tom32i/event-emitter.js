@@ -5,21 +5,17 @@
 install:
 	npm install
 
-# Launch watch
-watch:
-	npm run watch
-
 # Launch dev server
 start:
 	npm run start
 
+# Launch watch
+watch:
+	npm run watch
+
 # Build lib
 build:
 	npm run build
-
-# Preview lib
-preview:
-	npm run preview
 
 # Node demo
 node:

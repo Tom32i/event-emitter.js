@@ -13,13 +13,12 @@
   ],
   "type": "module",
   "scripts": {
-    "start": "vite",
+    "start": "vite preview",
     "watch": "vite build --watch",
-    "build": "vite build",
-    "preview": "vite preview",
+    "build": "vite build --mode=production",
     "lint": "eslint src/* --ext .js,.json --fix",
     "test": "vitest --run",
-    "test-watch": "vitest -- watch"
+    "test-watch": "vitest --watch"
   },
   "files": [
     "src",
