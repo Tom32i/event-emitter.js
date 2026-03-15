@@ -28,11 +28,16 @@ describe('EventEmitter', () => {
             bazCalls++;
         }
 
+        expect(foo.countEventListeners()).toBe(0);
+
         foo.on('bar', onBar);
         foo.on('baz', onBaz);
 
+        expect(foo.countEventListeners()).toBe(2);
+
         expect(barCalls).toBe(0);
         expect(bazCalls).toBe(0);
+
 
         foo.bar();
 
@@ -46,6 +51,8 @@ describe('EventEmitter', () => {
         expect(bazCalls).toBe(1);
 
         foo.off('baz', onBaz);
+
+        expect(foo.countEventListeners()).toBe(1);
 
         foo.baz();
 

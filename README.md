@@ -12,7 +12,15 @@ Minimalist JS Event Emitter system
 HTML:
 
 ```html
-<script src="tom32i-event-emitter.js"></script>
+<script src="tom32i-event-emitter.umd.cjs"></script>
+```
+
+HTML module:
+
+```html
+<script type="module">
+    import EventEmitter from './tom32i-event-emitter.js';
+</script>
 ```
 
 ES modules:

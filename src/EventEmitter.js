@@ -75,6 +75,14 @@ export default class EventEmitter {
         if (index >= 0) {
             callbacks.splice(index, 1);
         }
+
+        if(callbacks.length === 0) {
+            this.#events.delete(name);
+        }
+    }
+
+    countEventListeners() {
+        return this.#events.size;
     }
 
     /**
