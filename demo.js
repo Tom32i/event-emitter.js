@@ -1,4 +1,4 @@
-import EventEmitter from './dist/tom32i-event-emitter.js';
+import EventEmitter from 'tom32i-event-emitter.js';
 
 class Engine extends EventEmitter {
     constructor() {
