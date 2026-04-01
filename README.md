@@ -78,8 +78,18 @@ function onDie(event) {
 // Adding a listener
 player.on('die', onDie);  // "on" is an alias of "addEventListener"
 
+player.die();
+
 // Removing a listener
 player.off('die', onDie); // "off" is an alias of "removeEventListener"
+```
+
+#### Listen once
+
+Listening for a event only once (and then the listener is removed):
+
+```javascript
+player.once('die', (event) => console.log('This will only be called once', event));
 ```
 
 # Contribute

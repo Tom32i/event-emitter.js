@@ -144,4 +144,32 @@ describe('EventEmitter', () => {
         foo.bar(payload);
         foo.baz(32);
     });
+
+    test('once', () => {
+        let barCalls = 0;
+
+        const foo = new Foo();
+
+        function onBar(event) {
+            expect(event.type).toBe('bar');
+            barCalls++;
+        }
+
+        expect(foo.countEventListeners()).toBe(0);
+
+        foo.once('bar', onBar);
+
+        expect(barCalls).toBe(0);
+        expect(foo.countEventListeners()).toBe(1);
+
+        foo.bar();
+
+        expect(barCalls).toBe(1);
+        expect(foo.countEventListeners()).toBe(0);
+
+        foo.bar();
+
+        expect(barCalls).toBe(1);
+        expect(foo.countEventListeners()).toBe(0);
+    });
 });

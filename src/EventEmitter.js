@@ -81,6 +81,21 @@ export default class EventEmitter {
         }
     }
 
+    /**
+     * Add a listener that will be called just o,ce
+     *
+     * @param {String} name
+     * @param {Function} callback
+     */
+    once(name, callback) {
+        const handler = (...args) => {
+            this.removeEventListener(name, handler);
+            callback(...args);
+        };
+
+        this.addEventListener(name, handler);
+    }
+
     countEventListeners() {
         return this.#events.size;
     }
